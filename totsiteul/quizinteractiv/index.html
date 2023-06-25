@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../bootstrap.min.css">
+
+
+    <style>
+      body {
+          margin:0;
+          padding:0;
+          background-repeat: no-repeat;
+          background-size: cover;
+      }
+  </style>
+
+    <title>Quiz App</title>
+</head>
+
+<body>
+
+    <div id="loader"></div>
+    <div style="display:none;" id="myDiv">
+
+<section id="header">
+  <div class="header container">
+    <div class="nav-bar">
+      <div class="brand">
+        <a href="index.html">
+          <h1><span>R</span>azvan <span>P</span>irva</h1>
+        </a>
+      </div>
+      <div class="nav-list">
+        <div class="hamburger">
+          <div class="bar"></div>
+        </div>
+        <ul>
+          <li><a href="../index.html#hero" data-after="Acasa">Acasa</a></li>
+          <li><a href="../index.html#services" data-after="Servicii">Servicii</a></li>
+          <li><a href="../index.html#antrenament" data-after="Antrenament">Antrenament</a></li>
+          <li><a href="../index.html#about" data-after="Despre">Despre</a></li>
+          <li><a href="../index.html#contact" data-after="Contact">Contact</a></li>
+          <li class="dropdown">
+            <a href="index.html"data-after="Pagini">Pagini</a>
+            <div class="dropdown-content">
+              <a href="index.html"data-after="Quiz">Quiz</a>
+              <a href="../atlasinteractiv/index.html" data-after="Atlas">Atlas</a>
+              <a href="../coaching/index.html" data-after="Coaching">Coaching</a>
+
+            </div>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="accordion-container">
+
+  <h1>Quiz interactiv</h1>
+  <div class="accordion" id="accordionExample">
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Informatie ajutatoare
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Fiecare intrebare are 4 raspunsuri posibile, </strong>insa doar <code>unul este corect</code>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          Informatie ajutatoare 2
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Intrebarile sunt afisate in ordine aleatorie si aveti </strong><code> 20 de secunde</code> pt a raspunde pe fiecare intrebare 
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Punctaj
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+          <strong>Concurati cu prietenii vostri pt a vedea cine s-a descurcat mai bine la finalul quiz-ului</strong><code> prin sistemul de punctaj afisat la finalul quiz-ului</code>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+  <section id="quizcontainer">
+
+        <div class="start-screen">
+            <button id="start-button">Start</button>
+        </div>
+        <div id="display-container">
+            <div class="headerr2">
+                <span class="number-of-question"></span>
+                <div class="timer-div">
+                    <img src="png-transparent-computer-icons-speed-test-timer-miscellaneous-angle-time-thumbnail.png"
+                        width="20px" />
+                    <span class="time-left">20s</span>
+                </div>
+            </div>
+            <div id="container">
+           
+            </div>
+            <button id="next-button">Next</button>
+            <button class="restart">Restart</button>
+        </div>
+          <div class="score-container hide">
+            <div id="user-score">Demo Score</div>
+            <button class="restart">Restart</button>
+        </div>
+  </section>
+
+
+
+  
+    </div>
+
+ 
+    <script>
+        function showPage() {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("myDiv").style.display = "block";
+
+        }
+
+        setTimeout(showPage, 1000);
+    </script>
+
+    <script src="../app.js"></script>
+    <script src="script.js"></script>
+    <script src="../bootstrap.bundle.min.js"></script>
+</body>
+</html>

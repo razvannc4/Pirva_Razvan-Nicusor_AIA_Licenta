@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+    <link rel="stylesheet" href="style.css">
+
+    <title>Atlas Interactiv</title>
+</head>
+
+<body>
+  
+    <section id="header">
+        <div class="header container">
+            <div class="nav-bar">
+                <div class="brand">
+                    <a href="index.html">
+                        <h1><span>R</span>azvan <span>P</span>irva</h1>
+                    </a>
+                </div>
+                <div class="nav-list">
+                    <div class="hamburger">
+                        <div class="bar"></div>
+                    </div>
+                    <ul>
+                        <li><a href="../index.html#index" data-after="Acasa">Acasa</a></li>
+                        <li><a href="../index.html#services" data-after="Servicii">Servicii</a></li>
+                        <li><a href="../index.html#antrenament" data-after="Antrenament">Antrenament</a></li>
+                        <li><a href="../index.html#about" data-after="Despre">Despre</a></li>
+                        <li><a href="../index.html#contact" data-after="Contact">Contact</a></li>
+                        <li class="dropdown">
+                            <a href="index.html" data-after="Pagini">Pagini</a>
+                            <div class="dropdown-content">
+                                <a href="../quizinteractiv/index.html" data-after="Quiz">Quiz</a>
+                                <a href="index.html" data-after="Atlas">Atlas</a>
+                                <a href="../coaching/index.html" data-after="Coaching">Coaching</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+  
+    <div id="paragraph">
+        <p>Postura este foarte importanta, asa ca in timpul executarii exercitiilor, este necesar sa tineti spatele drept, pieptul sus, umerii jos si in spate</p>
+
+    </div>
+ 
+    <div id="muschicontainer">
+        <div id="image_container">
+            <img id="map-image" src="download.png" usemap="#image_map" width="850" height="850">
+            <map id="image_map" name="image_map">
+                <area alt="spatetrapez" title="spatetrapez" href="http://localhost/videos/spatetrapez.php" data-coords="171,105,324,354" shape="rect">
+                <area alt="triceps" title="triceps" href="http://localhost/videos/triceps.php" data-coords="324,191,372,280" shape="rect">
+                <area alt="triceps2" title="triceps2" href="http://localhost/videos/triceps.php"  data-coords="128,184,170,288" shape="rect">
+                <area alt="umarposterior" title="umarposterior" href="http://localhost/videos/umarposterior.php" data-coords="325,137,352,148,362,188,328,187" shape="polygon">
+                <area alt="umarposterior2" title="umarposterior2" href="http://localhost/videos/umarposterior.php" data-coords="169,132,144,138,129,180,171,183" shape="polygon">
+                <area alt="bicepsfemural" title="bicepsfemural" href="http://localhost/videos/hamstring.php" data-coords="185,454,236,607" shape="rect">
+                <area alt="bicepsfemural2" title="bicepsfemural2" href="http://localhost/videos/hamstring.php"data-coords="262,452,311,611" shape="rect">
+                <area alt="gambe" title="gambe" href="http://localhost/videos/gambe.php" data-coords="176,613,238,741" shape="rect">
+                <area alt="gambe1" title="gambe1" href="http://localhost/videos/gambe.php" data-coords="258,613,312,742" shape="rect">
+                <area alt="piept" title="piept" href="http://localhost/videos/piept.php" data-coords="598,152,554,172,566,233,602,245,629,236,696,248,705,230,713,180,710,165,670,156"  shape="polygon">
+                <area alt="umaranteriorlateral" title="umaranteriorlateral" href="http://localhost/videos/umaranteriorlateral.php"  data-coords="556,136,509,177,522,209,529,215,550,197,552,172,569,155" shape="polygon">
+                <area alt="umaranteriorlateral2" title="umaranteriorlateral2" href="http://localhost/videos/umaranteriorlateral.php" data-coords="701,134,744,151,747,191,740,212,739,219,724,190,717,178,696,150" shape="polygon">
+                <area alt="biceps" title="biceps" href="http://localhost/videos/biceps.php" data-coords="554,300,489,286,510,205,529,225,549,206,551,231,556,251" shape="polygon">
+                <area alt="biceps2" title="biceps2" href="http://localhost/videos/biceps.php"data-coords="759,275,702,299,706,234,713,196,732,212,750,226" shape="polygon">
+                <area alt="quads" title="quads" href="http://localhost/videos/quads.php" data-coords="545,415,618,598" shape="rect">
+                <area alt="quads2" title="quads2" href="http://localhost/videos/quads.php"data-coords="638,418,717,595" shape="rect">
+                <area alt="abdomen" title="abdomen" href="http://localhost/videos/abdomen.php" data-coords="588,242,684,380" shape="rect">
+            </map>
+        </div>
+    </div>
+ 
+
+    <script>
+        window.addEventListener('resize', function () {
+            updateMapCoordinates();
+        });
+
+        function updateMapCoordinates() {
+            var image = document.getElementById('map-image');
+            var map = document.getElementById('image_map');
+            var mapAreas = map.getElementsByTagName('area');
+
+            var imageWidth = image.clientWidth;
+            var imageHeight = image.clientHeight;
+            var originalWidth = image.naturalWidth;
+            var originalHeight = image.naturalHeight;
+
+            var widthRatio = originalWidth / imageWidth;
+            var heightRatio = originalHeight / imageHeight;
+
+            for (var i = 0; i < mapAreas.length; i++) {
+                var originalCoords = mapAreas[i].getAttribute('data-coords');
+                var coordsArray = originalCoords.split(',');
+
+                var updatedCoords = [];
+                for (var j = 0; j < coordsArray.length; j++) {
+                    if (j % 2 === 0) {
+                        updatedCoords.push(Math.round(coordsArray[j] / widthRatio));
+                    } else {
+                        updatedCoords.push(Math.round(coordsArray[j] / heightRatio));
+                    }
+                }
+
+                mapAreas[i].coords = updatedCoords.join(',');
+            }
+        }
+
+        updateMapCoordinates();
+    </script>
+
+    <script src="../app.js"></script>
+</body>
+
+</html>
